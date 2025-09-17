@@ -54,6 +54,16 @@ class Calender {
     }`;
   }
 
+  getDays() {
+    const date = new Date(this.currentYear, this.currentMonthIndex + 1, 0);
+    const alldates = date.getDate();
+    for (let start = 1; start <= alldates; start++) {
+      console.log(start);
+    }
+
+    // console.log(currentDay.getDate());
+  }
+
   addEventListeners() {
     this.navBtnLeft.addEventListener("click", () => this.getPreviousMonth());
     this.navBtnRight.addEventListener("click", () => this.getNextMonth());
@@ -61,5 +71,6 @@ class Calender {
 }
 
 const calender = new Calender();
+calender.getDays();
 calender.displayCalender();
 calender.addEventListeners();
