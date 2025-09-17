@@ -28,7 +28,8 @@ body {
   margin: 0;
 }
 
-.nav-btn {
+.nav-btn-left,
+.nav-btn-right {
   background: #007bff;
   border: none;
   color: #fff;
