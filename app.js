@@ -41,6 +41,7 @@ class Calender {
     this.currentMonth.textContent = `${this.months[this.currentMonthIndex]} ${
       this.currentYear
     }`;
+    this.getDays();
   }
   getNextMonth() {
     if (this.currentMonthIndex === 11) {
@@ -52,6 +53,7 @@ class Calender {
     this.currentMonth.textContent = `${this.months[this.currentMonthIndex]} ${
       this.currentYear
     }`;
+    this.getDays();
   }
 
   getDays() {
@@ -60,8 +62,6 @@ class Calender {
     for (let start = 1; start <= alldates; start++) {
       console.log(start);
     }
-
-    // console.log(currentDay.getDate());
   }
 
   addEventListeners() {
