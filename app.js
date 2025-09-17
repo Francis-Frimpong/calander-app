@@ -42,9 +42,21 @@ class Calender {
       this.currentYear
     }`;
   }
+  getNextMonth() {
+    if (this.currentMonthIndex === 11) {
+      this.currentMonthIndex = 0;
+      this.currentYear++;
+    } else {
+      this.currentMonthIndex++;
+    }
+    this.currentMonth.textContent = `${this.months[this.currentMonthIndex]} ${
+      this.currentYear
+    }`;
+  }
 
   addEventListeners() {
     this.navBtnLeft.addEventListener("click", () => this.getPreviousMonth());
+    this.navBtnRight.addEventListener("click", () => this.getNextMonth());
   }
 }
 
