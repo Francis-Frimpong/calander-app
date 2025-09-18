@@ -6,6 +6,7 @@ class Calender {
     this.today = new Date();
     this.currentMonthIndex = this.today.getMonth();
     this.currentYear = this.today.getFullYear();
+    this.days = document.querySelector(".days");
 
     this.months = [
       "January",
@@ -59,8 +60,30 @@ class Calender {
   getDays() {
     const date = new Date(this.currentYear, this.currentMonthIndex + 1, 0);
     const alldates = date.getDate();
+
+    const firstDay = new Date(this.currentYear, this.currentMonthIndex, 1);
+    const weekday = firstDay.getDay();
+    this.days.innerHTML = "";
+
+    for (let i = 0; i < weekday; i++) {
+      const emptyDiv = document.createElement("div");
+      this.days.appendChild(emptyDiv);
+    }
+
     for (let start = 1; start <= alldates; start++) {
-      console.log(start);
+      const daysDiv = document.createElement("div");
+      daysDiv.textContent = start;
+
+      this.days.appendChild(daysDiv);
+
+      if (
+        start === this.today.getDate() &&
+        this.currentMonthIndex === this.today.getMonth()
+      ) {
+        daysDiv.classList.add("today");
+      } else {
+        daysDiv.classList.remove("today");
+      }
     }
   }
 
